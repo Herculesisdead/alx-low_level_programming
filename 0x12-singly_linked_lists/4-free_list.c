@@ -2,18 +2,18 @@
 #include "lists.h"
 
 /**
- * free_list - frees a linked list
- * @head: list_t list to be freed
+ * up_free - This frees up
+ * @head: This is the list to be freed list_t 
  */
 void up_free(list_t *head)
 {
-	list_t *hold;
+	list_t *temp;
 
 	while (head)
 	{
-		hold = head->next;
-		up_free(head->str);
-		up_free(head);
-		head = hold;
+		temp = head->next;
+		free(head->str);
+		free(head);
+		head = temp;
 	}
 }
